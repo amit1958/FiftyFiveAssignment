@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.hyperlocal.HomePageTest"/>
+      <class name="com.hyperlocal.CarPageTest">
+      <methods>
+        <include name="CarPageTest" />
+        <include name="carGetaquoteTest" />
+        <include name="bookaTestDriveTest" />
+        <include name="navigatetoEMICalculatorTest" />
+        <include name="carPriceCheckup" />
+      </methods>  
+       </class>
+      <class name="com.hyperlocal.ServiceTest"/>
+      <class name="com.hyperlocal.AccessoriesTest"/>
+      <class name="com.hyperlocal.FinanceTest"/>
+      <class name="com.hyperlocal.InsuranceTest"/>
+      <class name="com.hyperlocal.DrivingSchoolTest"/>
+      <class name="com.hyperlocal.CareersTest"/>
+      <class name="com.hyperlocal.ContactUsTest"/>
+      <class name="com.hyperlocal.EBookNowTest"/>
+      <class name="com.hyperlocal.AboutUsTest"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
