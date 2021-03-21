@@ -14,18 +14,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import com.SMP.TakeScreenshot;
+
 import sendEmail.SendEmail;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features= {"C:/Users/AGL/AmitSharma/workspace/ArenaSMP-cucumber/src/main/java/features/WhySubscribe.feature",
-				/*"C:/Users/AGL/AmitSharma/workspace/ArenaSMP-cucumber/src/main/java/features/LeasingPartners.feature",
-				"C:/Users/AGL/AmitSharma/workspace/ArenaSMP-cucumber/src/main/java/features/AvailableModels.feature",
-				"C:/Users/AGL/AmitSharma/workspace/ArenaSMP-cucumber/src/main/java/features/CityListing.feature",
-				"C:/Users/AGL/AmitSharma/workspace/ArenaSMP-cucumber/src/main/java/features/Login.feature",
-				"C:/Users/AGL/AmitSharma/workspace/ArenaSMP-cucumber/src/main/java/features/Homepage_Banner.feature" */},
+		features= {"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/TenureRange.feature"
+				/*"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/WhySubscribe.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/LeasingPartners.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/AvailableModels.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/CityListing.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Login.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Homepage_Banner.feature" */},
 		glue={"StepDefinations"},
 		plugin={"pretty","html:target/cucumber-html-report"},
 		//format= { "html:test-output"},
@@ -46,7 +49,7 @@ public class TestExecuter {
         System.out.println("Ran the before");
     	try {
     			File myfile = new File(
-    					"C:\\Users\\AGL\\AmitSharma\\workspace\\ArenaSMP-cucumber\\SMP.properties");
+    					"C:\\Users\\AGL\\smp\\git\\ArenaSMP-Cucumber\\SMP.properties");
     			System.out.println("exists:==> " + myfile.exists());
     			FileInputStream myInput = new FileInputStream(myfile);
     			pr.load(myInput);
@@ -71,6 +74,9 @@ public class TestExecuter {
     @AfterClass
     public static void teardown() {
         //driver.quit();
+    	TakeScreenshot myscreen= new TakeScreenshot();
+    	myscreen.takesScreenshot();
+
     }
     @AfterSuite
     public static void afteersuite(){
