@@ -3,7 +3,6 @@ package TestRunner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -14,21 +13,25 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import com.SMP.TakeScreenshot;
-
 import sendEmail.SendEmail;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features= {"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/TenureRange.feature"
-				/*"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/WhySubscribe.feature",
-				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/LeasingPartners.feature",
-				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/AvailableModels.feature",
+		features= {"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Sprint2_VehicleListing.feature"
+				//"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/ValidLogin.feature",
+				//"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/InValidLogin.feature",
+				//"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Sprint2_Profile.feature",
+				/*"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Homepage_Banner.feature",
 				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/CityListing.feature",
-				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Login.feature",
-				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Homepage_Banner.feature" */},
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/AvailableModels.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/LeasingPartners.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/WhySubscribe.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/TenureRange.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/CarRange.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/PriceRange.feature"*/
+		},
 		glue={"StepDefinations"},
 		plugin={"pretty","html:target/cucumber-html-report"},
 		//format= { "html:test-output"},
@@ -38,7 +41,7 @@ import cucumber.api.junit.Cucumber;
 public class TestExecuter {
 	public static WebDriver driver;
   	public static Properties pr = new Properties();
-  	public  WebDriverWait mywait= new WebDriverWait(driver, 10);
+  	public static  WebDriverWait mywait;
   	
   	@BeforeSuite
   	public static void setupSuite(){
@@ -57,10 +60,11 @@ public class TestExecuter {
     			// pr.getProperty("ffdriverpath"));
     			System.setProperty("webdriver.gecko.driver",
     					pr.getProperty("ffdriverpathupdated"));
+    			//driver.manage().deleteAllCookies();
     			System.out.println("before calling the url");
     			driver = new FirefoxDriver();
     			System.out.println("After calling the ffdriver");
-    			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    			mywait = new WebDriverWait(driver, 10);
     			// driver.manage().window().maximize();
     			driver.get(pr.getProperty("url"));
     			System.out.println("url is " + pr.getProperty("url"));
@@ -74,8 +78,8 @@ public class TestExecuter {
     @AfterClass
     public static void teardown() {
         //driver.quit();
-    	TakeScreenshot myscreen= new TakeScreenshot();
-    	myscreen.takesScreenshot();
+//    	TakeScreenshot myscreen= new TakeScreenshot();
+//    	myscreen.takesScreenshot();
 
     }
     @AfterSuite

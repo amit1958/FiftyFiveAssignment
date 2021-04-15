@@ -18,7 +18,9 @@ public class LeasingPartners extends TestExecuter {
 
 	@When("^Select the city Fariabad$")
 	public void Select_city_Fariabad() throws InterruptedException {
+		driver.get(pr.getProperty("url"));
 		WebElement manualcity = driver.findElement(By.id("selctedCity_Des"));
+		mywait.until(ExpectedConditions.visibilityOf(manualcity));
 		manualcity.click();
 		manualcity.sendKeys("Faridabad");
 		driver.findElement(By.xpath("//*[contains(text(), 'Faridabad')]"))
@@ -32,6 +34,7 @@ public class LeasingPartners extends TestExecuter {
 	
 		WebElement availablepartners = driver.findElement(By
 				.xpath("//*[@id='divSMPleasingPartner']/div/div/h2"));
+		mywait.until(ExpectedConditions.visibilityOf(availablepartners));
 		availablepartners.getText().trim();
 		mywait= new WebDriverWait(driver, 20);
 		mywait.until(ExpectedConditions.visibilityOf(availablepartners));
@@ -46,6 +49,7 @@ public class LeasingPartners extends TestExecuter {
 	public void Verify_partners() throws InterruptedException {
 		List<WebElement> allpartners = driver.findElements(By
 				.id("divSmpAvailableModels"));
+		mywait.until(ExpectedConditions.visibilityOfAllElements(allpartners));
 		Integer totalpartners= allpartners.size();
 		System.out.println("==Total Partners are ===" +totalpartners);
 		for (WebElement mypartner : allpartners) {

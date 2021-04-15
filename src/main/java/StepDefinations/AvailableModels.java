@@ -28,6 +28,7 @@ public class AvailableModels extends TestExecuter {
 	@When("^Select city Fariabad$")
 	public void Select_city_Fariabad() throws InterruptedException {
 		WebElement manualcity = driver.findElement(By.id("selctedCity_Des"));
+		mywait.until(ExpectedConditions.visibilityOf(manualcity));
 		manualcity.click();
 		manualcity.sendKeys("Faridabad");
 		driver.findElement(By.xpath("//*[contains(text(), 'Faridabad')]"))
@@ -41,6 +42,7 @@ public class AvailableModels extends TestExecuter {
 	
 		WebElement availablemodels = driver.findElement(By
 				.xpath("//*[@id='divSmpAvailModel']/div/h2"));
+		mywait.until(ExpectedConditions.visibilityOf(availablemodels));
 		availablemodels.getText().trim();
 		mywait= new WebDriverWait(driver, 20);
 		mywait.until(ExpectedConditions.visibilityOf(availablemodels));
@@ -55,6 +57,7 @@ public class AvailableModels extends TestExecuter {
 	public void Verify_Models() throws InterruptedException {
 		List<WebElement> allmodels = driver.findElements(By
 				.id("divSmpAvailableModels"));
+		mywait.until(ExpectedConditions.visibilityOfAllElements(allmodels));
 		for (WebElement mymodel : allmodels) {
 			String model1 = mymodel.getText();
 			if (model1 != null) {

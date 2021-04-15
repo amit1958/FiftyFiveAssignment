@@ -18,9 +18,10 @@ public class WhySubscribe extends TestExecuter {
 
 	@Then("^User should come with whysubscribe section$")
 	public void Verify_whysubscribe() throws InterruptedException {
-	
+		driver.get(pr.getProperty("url"));
 		WebElement whysubscribe = driver.findElement(By
 				.xpath("/html/body/div[4]/div[3]/div[1]/div/h2"));
+		mywait.until(ExpectedConditions.visibilityOf(whysubscribe));
 		whysubscribe.getText().trim();
 		mywait= new WebDriverWait(driver, 10);
 		mywait.until(ExpectedConditions.visibilityOf(whysubscribe));
@@ -34,6 +35,7 @@ public class WhySubscribe extends TestExecuter {
 	@And("^Verify all whysubscribe items$")
 	public void Verify_whysubscribe_items() throws InterruptedException {
 		List<WebElement> allsubscribeitems = driver.findElements(By.xpath("//body/div[4]/div[3]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]"));
+		mywait.until(ExpectedConditions.visibilityOfAllElements(allsubscribeitems));
 		Integer allitems= allsubscribeitems.size();
 	System.out.println(allitems);
 		for (WebElement mysubscribeitems : allsubscribeitems) {

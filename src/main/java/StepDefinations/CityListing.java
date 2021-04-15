@@ -16,6 +16,7 @@ public class CityListing extends TestExecuter {
 
 	@Given("^User is on the landing page$")
 	public void LandingPage() throws InterruptedException{
+		driver.get(pr.getProperty("url"));
 		String actualURL= driver.getCurrentUrl();
 		String expectedURL= "https://arena-qa-rg-523160-single.azurewebsites.net/smp";
 		assertEquals(actualURL, expectedURL);
@@ -25,6 +26,7 @@ public class CityListing extends TestExecuter {
 	@When("^Check city listing$")
 	public void clicks_City_listing() throws InterruptedException {
 		WebElement Citysearch =  driver.findElement(By.id("selctedCity_Des"));
+		mywait.until(ExpectedConditions.visibilityOf(Citysearch));
 		Citysearch.click();
 		WebElement citylist=driver.findElement(By.xpath("//ul[@id='cityList_desktop']"));
 		citylist.click();
@@ -41,6 +43,7 @@ public class CityListing extends TestExecuter {
 	public void Verify_Manual_City() throws InterruptedException {
 		WebElement manualcity =driver.findElement(By.id("selctedCity_Des"));
 				manualcity.sendKeys("Faridabad");
+				mywait.until(ExpectedConditions.visibilityOf(manualcity));
 		driver.findElement(By.xpath("//*[contains(text(), 'Faridabad')]")).click();
 		System.out.println(manualcity.getText());
 		String actualcity= manualcity.getText().trim();
