@@ -25,30 +25,37 @@ public class CityListing extends TestExecuter {
 	}
 	@When("^Check city listing$")
 	public void clicks_City_listing() throws InterruptedException {
-		WebElement Citysearch =  driver.findElement(By.id("selctedCity_Des"));
+		WebElement Citysearch =  driver.findElement(By.xpath("//*[@class='locationLink']/a[@id='selctedCity_Des']"));
 		mywait.until(ExpectedConditions.visibilityOf(Citysearch));
 		Citysearch.click();
-		WebElement citylist=driver.findElement(By.xpath("//ul[@id='cityList_desktop']"));
+		WebElement citylist =  driver.findElement(By.xpath("//*[@class='selectCityField']/input[@class='locationCityField']"));
+		mywait.until(ExpectedConditions.visibilityOf(citylist));
 		citylist.click();
 	
 	}
 	@Then("^User should come with defaul city as per location$")
 	public void Verify_Default_City() throws InterruptedException {
-		WebElement currentcity =driver.findElement(By.id("selctedCity_Des"));
+		WebElement currentcity =driver.findElement(By.xpath("//*[@class='locationLink']/a[@id='selctedCity_Des']"));
 		mywait.until(ExpectedConditions.elementToBeClickable(currentcity));
 		 String cityname= currentcity.getText();
 			System.out.println("==Cityname==" + cityname);
 	}
 	@And("^Verify City manually$")
-	public void Verify_Manual_City() throws InterruptedException {
-		WebElement manualcity =driver.findElement(By.id("selctedCity_Des"));
-				manualcity.sendKeys("Faridabad");
-				mywait.until(ExpectedConditions.visibilityOf(manualcity));
-		driver.findElement(By.xpath("//*[contains(text(), 'Faridabad')]")).click();
-		System.out.println(manualcity.getText());
-		String actualcity= manualcity.getText().trim();
+	public static void Verify_Manual_City() throws InterruptedException {
+	
+		WebElement citylist =  driver.findElement(By.xpath("//*[@class='selectCityField']/input[@class='locationCityField']"));
+		mywait.until(ExpectedConditions.visibilityOf(citylist));
+		citylist.click();
+		Thread.sleep(5000);
+		citylist.sendKeys("Faridabad");
+		WebElement dropdown= driver.findElement(By.xpath("//li[@data-cityid='8']/a[contains(text(), 'Faridabad')]"));
+		mywait.until(ExpectedConditions.elementToBeClickable(dropdown));
+		dropdown.click();
+		System.out.println(citylist.getText());
+		String actualcity= citylist.getText().trim();
 		String expectedcity= "Faridabad";
 		assertEquals(actualcity, expectedcity);
+		driver.findElement(By.xpath("//a[contains(text(),'Select')]")).click();
 		
 	}
 

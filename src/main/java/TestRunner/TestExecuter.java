@@ -19,18 +19,18 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features= {"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Sprint2_VehicleListing.feature"
-				//"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/ValidLogin.feature",
-				//"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/InValidLogin.feature",
-				//"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Sprint2_Profile.feature",
-				/*"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Homepage_Banner.feature",
+		features= {/*"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Sprint2_VehicleListing.feature"
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/ValidLogin.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/InValidLogin.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Sprint2_Profile.feature",
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/Homepage_Banner.feature",
 				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/CityListing.feature",
 				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/AvailableModels.feature",
 				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/LeasingPartners.feature",
 				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/WhySubscribe.feature",
 				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/TenureRange.feature",
-				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/CarRange.feature",
-				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/PriceRange.feature"*/
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/CarRange.feature",*/
+				"C:/Users/AGL/smp/git/ArenaSMP-Cucumber/src/main/java/features/PriceRange.feature"
 		},
 		glue={"StepDefinations"},
 		plugin={"pretty","html:target/cucumber-html-report"},

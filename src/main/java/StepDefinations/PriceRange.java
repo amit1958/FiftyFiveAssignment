@@ -13,26 +13,27 @@ import cucumber.api.java.en.Then;
 
 public class PriceRange extends TestExecuter {
 	@Then("^Go to Price Range page and verify it$")
-	public void Click_Explore() {
+	public void Click_Explore() throws InterruptedException {
 		WebElement explorebutton = driver.findElement(By
 				.xpath("//a[contains(text(),'Explore More')]"));
 		mywait.until(ExpectedConditions.visibilityOf(explorebutton));
 		explorebutton.click();
+		Thread.sleep(5000);
 		WebElement clicknext = driver.findElement(By
 				.xpath("//*[@class='orangeButton carSelectScreen']/a"));
 		mywait.until(ExpectedConditions.visibilityOf(clicknext));
 		clicknext.click();
-		
-		WebElement Selectall =
-				driver.findElement(By
-						.xpath("//a[contains(text(),'SELECT ALL')]"));
+
+		WebElement Selectall = driver.findElement(By
+				.xpath("//a[contains(text(),'SELECT ALL')]"));
 		mywait.until(ExpectedConditions.visibilityOf(Selectall));
-		if (Selectall.getText().equalsIgnoreCase("SELECT ALL"));
+		if (Selectall.getText().equalsIgnoreCase("SELECT ALL"))
+			;
 		Selectall.click();
 		System.out.println("Car selected");
-		WebElement donext= driver.findElement(By.xpath("//*[@id='nextselection']/a"));
-		mywait.until(ExpectedConditions.visibilityOf(donext));
-		donext.click();
+		Thread.sleep(5000);
+
+		CarRange.Do_Next();
 		
 
 	}
@@ -40,18 +41,19 @@ public class PriceRange extends TestExecuter {
 		@And("^Do price range selection$")
 		public void Select_pricerange() {
 			//Fetch Price slider dimension
-			WebElement sliderdimension= driver.findElement(By.xpath("//body/div[4]/div[3]/div[1]/div[2]/div[2]/span[1]/span[3]"));
+			WebElement sliderdimension= driver.findElement(By.xpath("//*[@class='irs irs--flat js-irs-1']/span[@class='irs-bar']"));
+			mywait.until(ExpectedConditions.visibilityOf(sliderdimension));
 			assertTrue(sliderdimension.isDisplayed());
 			//Dimension sliderSize = sliderdimension.getSize();
 			int xCoord = sliderdimension.getLocation().getX();
 			System.out.println("Xcorrd is " +xCoord);
-			WebElement priceslider= driver.findElement(By.xpath("//body/div[4]/div[3]/div[1]/div[2]/div[2]/span[1]/span[6]"));
+			WebElement priceslider= driver.findElement(By.xpath("//*[@class='irs irs--flat js-irs-1']/span[@class='irs-handle from']"));
 			mywait.until(ExpectedConditions.visibilityOf(priceslider));
 			Actions moveslider= new Actions(driver);
 			moveslider.clickAndHold(priceslider).moveByOffset(xCoord, 0).build().perform();
-		WebElement selectedRange=driver.findElement(By.xpath("/html/body/div[4]/div[3]/div[1]/div[2]/div[2]/span/span[1]/span[6]"));
+		/*WebElement selectedRange=driver.findElement(By.xpath("/html/body/div[4]/div[3]/div[1]/div[2]/div[2]/span/span[1]/span[6]"));
 			String actualPricerange= selectedRange.getText();
-			System.out.println("selected price range is" + " "+actualPricerange);
+			System.out.println("selected price range is" + " "+actualPricerange);*/
 			/*String ExpectedPricerange= "34 000 — 250 000";
 			assertEquals(actualPricerange, ExpectedPricerange);*/
 		}

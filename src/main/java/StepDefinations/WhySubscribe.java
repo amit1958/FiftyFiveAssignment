@@ -7,7 +7,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import TestRunner.TestExecuter;
 import cucumber.api.java.en.And;
@@ -20,11 +19,9 @@ public class WhySubscribe extends TestExecuter {
 	public void Verify_whysubscribe() throws InterruptedException {
 		driver.get(pr.getProperty("url"));
 		WebElement whysubscribe = driver.findElement(By
-				.xpath("/html/body/div[4]/div[3]/div[1]/div/h2"));
+				.xpath("//h2[contains(text(),'Why Subscribe?')]"));
 		mywait.until(ExpectedConditions.visibilityOf(whysubscribe));
 		whysubscribe.getText().trim();
-		mywait= new WebDriverWait(driver, 10);
-		mywait.until(ExpectedConditions.visibilityOf(whysubscribe));
 		
 		String actuallabel = whysubscribe.getText().trim();
 		String expectedlabel = "Why Subscribe?";

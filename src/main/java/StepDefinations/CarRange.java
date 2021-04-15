@@ -1,7 +1,5 @@
 package StepDefinations;
 
-import static org.testng.Assert.assertEquals;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,22 +10,9 @@ import cucumber.api.java.en.Then;
 
 public class CarRange extends TestExecuter {
 	@Then("^Go to Car Range page and verify it$")
-	public void Click_Explore() {
-		driver.get(pr.getProperty("url"));
-		WebElement explorebutton = driver.findElement(By
-				.xpath("//a[contains(text(),'Explore More')]"));
-		mywait.until(ExpectedConditions.visibilityOf(explorebutton));
-		explorebutton.click();
-		WebElement clicknext = driver.findElement(By
-				.xpath("//*[@class='orangeButton carSelectScreen']/a"));
-		mywait.until(ExpectedConditions.visibilityOf(clicknext));
-		clicknext.click();
-		WebElement verifypage = driver.findElement(By
-				.xpath("//div[contains(text(),'Select Car')]"));
-		mywait.until(ExpectedConditions.visibilityOf(verifypage));
-		String actuallabel = verifypage.getText().trim();
-		String expectedlabel = "Select Car";
-		assertEquals(actuallabel, expectedlabel);
+	public void Click_Explore() throws InterruptedException {
+		TenureRange.Click_Explore();
+		TenureRange.Click_Next();
 
 	}
 

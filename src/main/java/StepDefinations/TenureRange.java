@@ -12,7 +12,7 @@ import cucumber.api.java.en.Then;
 
 public class TenureRange extends TestExecuter {
 	@Then("^User clicks on Explore CTA on the banner$")
-	public void Click_Explore() {
+	public static void Click_Explore() {
 		driver.get(pr.getProperty("url"));
 		WebElement explorebutton = driver.findElement(By
 				.xpath("//a[contains(text(),'Explore More')]"));
@@ -60,7 +60,7 @@ public class TenureRange extends TestExecuter {
 	}*/
 
 	@And("^Verify Click Next$")
-	public void Click_Next() throws InterruptedException {
+	public static void Click_Next() throws InterruptedException {
 		WebElement clicknext = driver.findElement(By
 				.xpath("//*[@class='orangeButton carSelectScreen']/a"));
 		mywait.until(ExpectedConditions.visibilityOf(clicknext));
@@ -78,10 +78,10 @@ public class TenureRange extends TestExecuter {
 	@And("^Verify Click Back$")
 	public void Click_Back() {
 		WebElement clickBack = driver.findElement(By
-				.xpath("/html/body/div[4]/div[2]/div[2]/div/div[2]/ul/li[1]/a"));
+				.xpath("//*[@class='whiteButton monthSelectScreen']/a[contains(text(), 'Back')]"));
 		mywait.until(ExpectedConditions.visibilityOf(clickBack));
 		clickBack.click();
-		WebElement actualvalue = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[1]/div[2]/div[2]/div[1]"));
+		WebElement actualvalue = driver.findElement(By.xpath("//div[contains(text(),'Select Range')]"));
 		mywait.until(ExpectedConditions.visibilityOf(actualvalue));
 		String actualname=actualvalue.getText().trim();
 		String expectedvalue = "Select Range";

@@ -16,24 +16,14 @@ import cucumber.api.java.en.When;
 
 public class AvailableModels extends TestExecuter {
 
-/*	@Given("^User is on the landing page$")
-	public void LandingPage() throws InterruptedException {
-		String actualURL = driver.getCurrentUrl();
-		String expectedURL = "https://arena-qa-rg-523160-single.azurewebsites.net/smp";
-		assertEquals(actualURL, expectedURL);
-		System.out.println("Test Case is passed");
-		Thread.sleep(5000);
-	}*/
 
 	@When("^Select city Fariabad$")
 	public void Select_city_Fariabad() throws InterruptedException {
-		WebElement manualcity = driver.findElement(By.id("selctedCity_Des"));
-		mywait.until(ExpectedConditions.visibilityOf(manualcity));
-		manualcity.click();
-		manualcity.sendKeys("Faridabad");
-		driver.findElement(By.xpath("//*[contains(text(), 'Faridabad')]"))
-				.click();
-		Thread.sleep(8000);
+		WebElement Citysearch =  driver.findElement(By.xpath("//*[@class='locationLink']/a[@id='selctedCity_Des']"));
+		mywait.until(ExpectedConditions.visibilityOf(Citysearch));
+		Citysearch.click();
+	CityListing.Verify_Manual_City();
+		
 
 	}
 
