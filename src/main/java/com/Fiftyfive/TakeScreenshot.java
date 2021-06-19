@@ -1,14 +1,17 @@
-package com.SMP;
+package com.Fiftyfive;
 
 import java.io.File;
 import java.io.IOException;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import TestRunner.TestExecuter;
 
 
-public class TakeScreenshot extends origin{
+
+public class TakeScreenshot extends TestExecuter{
 
 
 	public  void takesScreenshot(){
@@ -19,7 +22,7 @@ public class TakeScreenshot extends origin{
 		try {
 		  // now copy the  screenshot to desired location using copyFile method
 		 
-		 FileUtils.copyFile(src, new File("D:\\Selenium\\SMP_Screenshot"  + System.currentTimeMillis()+".png"));
+		 FileUtils.copyFile(src, new File("D:\\Selenium\\Screenshot\\SMP"  + System.currentTimeMillis()+".png"));
 		       
 		}
 		 

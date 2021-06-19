@@ -1,12 +1,12 @@
-package SMPUtils;
+package Utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import com.SMP.origin;
+import TestRunner.TestExecuter;
 
-public class Asserts extends origin{
+public class Asserts extends TestExecuter{
 
 	public static void homePageAssert(){
 		WebElement expected= driver.findElement(By.xpath("//h3[contains(text(),'Car Range')]"));
