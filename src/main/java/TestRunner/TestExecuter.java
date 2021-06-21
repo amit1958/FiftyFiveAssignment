@@ -19,15 +19,11 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import sendEmail.SendEmail;
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = { "./src/main/java/features" }, tags = { "@ToDO" },
+@CucumberOptions(features = { "./src/main/java/features" }, tags = { "@todo1" },
 
 // "@ValidLogin,@Invlidlogin,"
 // + "@HomepageBanners,@AvailableModels,@whysubscribe,@leasingpartners,

@@ -1,4 +1,4 @@
-@ToDO
+@ui
 Feature: Verifying ToDOs
 
   Scenario: Checking the Correct page navigation.
