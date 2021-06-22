@@ -1,219 +1,497 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("GetAllToDO.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("UITodo.feature");
 formatter.feature({
   "line": 2,
-  "name": "API Automation",
+  "name": "Verifying ToDOs",
   "description": "",
-  "id": "api-automation",
-  "keyword": "Feature"
-});
-formatter.scenarioOutline({
-  "line": 6,
-  "name": "Validate the ToDO Api response",
-  "description": "",
-  "id": "api-automation;validate-the-todo-api-response",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline",
+  "id": "verifying-todos",
+  "keyword": "Feature",
   "tags": [
     {
-      "line": 5,
-      "name": "@todo1"
+      "line": 1,
+      "name": "@ui"
     }
   ]
 });
+formatter.scenario({
+  "line": 4,
+  "name": "Checking the Correct page navigation.",
+  "description": "",
+  "id": "verifying-todos;checking-the-correct-page-navigation.",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
 formatter.step({
-  "line": 7,
-  "name": "User sets the API request for All To Do \u003cURL\u003e",
+  "line": 5,
+  "name": "User open  the given URL",
   "keyword": "Given "
 });
 formatter.step({
+  "line": 6,
+  "name": "User should navigate to the Correct page",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "ToDO.GotoURL()"
+});
+formatter.result({
+  "duration": 389333500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "ToDO.Verify_PageTitle()"
+});
+formatter.result({
+  "duration": 8855700,
+  "status": "passed"
+});
+formatter.scenario({
   "line": 8,
-  "name": "User sends the api Request to get all todos",
-  "keyword": "When "
+  "name": "Check the Page Heading and Field is vaialble or not as expeced",
+  "description": "",
+  "id": "verifying-todos;check-the-page-heading-and-field-is-vaialble-or-not-as-expeced",
+  "type": "scenario",
+  "keyword": "Scenario"
 });
 formatter.step({
   "line": 9,
-  "name": "All todo should come in response with status \u003ccode\u003e",
+  "name": "User on the page check the Heading present or not",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 10,
+  "name": "Also verify the Text box field availabe or not.",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "ToDO.Checkheader()"
+});
+formatter.result({
+  "duration": 78280100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "ToDO.CheckTextbox()"
+});
+formatter.result({
+  "duration": 158168600,
+  "status": "passed"
+});
+formatter.scenarioOutline({
+  "line": 12,
+  "name": ": Verify Add a Todo",
+  "description": "",
+  "id": "verifying-todos;:-verify-add-a-todo",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline"
+});
+formatter.step({
+  "line": 13,
+  "name": "User enter \"\u003cToDo\u003e\" Name and submit",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 14,
+  "name": "Todo should added",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 10,
+  "line": 16,
   "name": "",
   "description": "",
-  "id": "api-automation;validate-the-todo-api-response;",
+  "id": "verifying-todos;:-verify-add-a-todo;",
   "rows": [
     {
       "cells": [
-        "URL",
-        "code"
+        "ToDo"
       ],
-      "line": 11,
-      "id": "api-automation;validate-the-todo-api-response;;1"
+      "line": 17,
+      "id": "verifying-todos;:-verify-add-a-todo;;1"
     },
     {
       "cells": [
-        "https://jsonplaceholder.typicode.com",
-        "200"
+        "Amit Sharma todo1"
       ],
-      "line": 12,
-      "id": "api-automation;validate-the-todo-api-response;;2"
+      "line": 18,
+      "id": "verifying-todos;:-verify-add-a-todo;;2"
+    },
+    {
+      "cells": [
+        "Amit Sharma todo2"
+      ],
+      "line": 19,
+      "id": "verifying-todos;:-verify-add-a-todo;;3"
+    },
+    {
+      "cells": [
+        "Amit Sharma todo3"
+      ],
+      "line": 20,
+      "id": "verifying-todos;:-verify-add-a-todo;;4"
+    },
+    {
+      "cells": [
+        "Amit Sharma todo4"
+      ],
+      "line": 21,
+      "id": "verifying-todos;:-verify-add-a-todo;;5"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 12,
-  "name": "Validate the ToDO Api response",
+  "line": 18,
+  "name": ": Verify Add a Todo",
   "description": "",
-  "id": "api-automation;validate-the-todo-api-response;;2",
+  "id": "verifying-todos;:-verify-add-a-todo;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 5,
-      "name": "@todo1"
+      "line": 1,
+      "name": "@ui"
     }
   ]
 });
 formatter.step({
-  "line": 7,
-  "name": "User sets the API request for All To Do https://jsonplaceholder.typicode.com",
+  "line": 13,
+  "name": "User enter \"Amit Sharma todo1\" Name and submit",
   "matchedColumns": [
     0
   ],
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 8,
-  "name": "User sends the api Request to get all todos",
   "keyword": "When "
 });
 formatter.step({
-  "line": 9,
-  "name": "All todo should come in response with status 200",
-  "matchedColumns": [
-    1
-  ],
+  "line": 14,
+  "name": "Todo should added",
   "keyword": "Then "
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.uri("GetToDO.feature");
-formatter.feature({
-  "line": 2,
-  "name": "API Automation",
-  "description": "",
-  "id": "api-automation",
-  "keyword": "Feature"
-});
-formatter.scenarioOutline({
-  "line": 6,
-  "name": "Validate the ToDO Api response",
-  "description": "",
-  "id": "api-automation;validate-the-todo-api-response",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline",
-  "tags": [
+formatter.match({
+  "arguments": [
     {
-      "line": 5,
-      "name": "@todo1"
-    }
-  ]
-});
-formatter.step({
-  "line": 7,
-  "name": "User sets the API request \u003cURL\u003e",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 8,
-  "name": "User sends the api Request to get a todos",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 9,
-  "name": "A todo should come in response with status \u003ccode\u003e",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 10,
-  "name": "",
-  "description": "",
-  "id": "api-automation;validate-the-todo-api-response;",
-  "rows": [
-    {
-      "cells": [
-        "URL",
-        "code"
-      ],
-      "line": 11,
-      "id": "api-automation;validate-the-todo-api-response;;1"
-    },
-    {
-      "cells": [
-        "https://jsonplaceholder.typicode.com",
-        "200"
-      ],
-      "line": 12,
-      "id": "api-automation;validate-the-todo-api-response;;2"
+      "val": "Amit Sharma todo1",
+      "offset": 12
     }
   ],
-  "keyword": "Examples"
+  "location": "ToDO.Enter_todoname(String)"
+});
+formatter.result({
+  "duration": 1224339500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "ToDO.VerifyAdded_TODO()"
+});
+formatter.result({
+  "duration": 76882000,
+  "status": "passed"
 });
 formatter.scenario({
-  "line": 12,
-  "name": "Validate the ToDO Api response",
+  "line": 19,
+  "name": ": Verify Add a Todo",
   "description": "",
-  "id": "api-automation;validate-the-todo-api-response;;2",
+  "id": "verifying-todos;:-verify-add-a-todo;;3",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 5,
-      "name": "@todo1"
+      "line": 1,
+      "name": "@ui"
     }
   ]
 });
 formatter.step({
-  "line": 7,
-  "name": "User sets the API request https://jsonplaceholder.typicode.com",
+  "line": 13,
+  "name": "User enter \"Amit Sharma todo2\" Name and submit",
   "matchedColumns": [
     0
   ],
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 8,
-  "name": "User sends the api Request to get a todos",
   "keyword": "When "
 });
 formatter.step({
-  "line": 9,
-  "name": "A todo should come in response with status 200",
-  "matchedColumns": [
-    1
-  ],
+  "line": 14,
+  "name": "Todo should added",
   "keyword": "Then "
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "arguments": [
+    {
+      "val": "Amit Sharma todo2",
+      "offset": 12
+    }
+  ],
+  "location": "ToDO.Enter_todoname(String)"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 1136875600,
+  "status": "passed"
 });
-formatter.match({});
+formatter.match({
+  "location": "ToDO.VerifyAdded_TODO()"
+});
 formatter.result({
-  "status": "undefined"
+  "duration": 72203600,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 20,
+  "name": ": Verify Add a Todo",
+  "description": "",
+  "id": "verifying-todos;:-verify-add-a-todo;;4",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@ui"
+    }
+  ]
+});
+formatter.step({
+  "line": 13,
+  "name": "User enter \"Amit Sharma todo3\" Name and submit",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 14,
+  "name": "Todo should added",
+  "keyword": "Then "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Amit Sharma todo3",
+      "offset": 12
+    }
+  ],
+  "location": "ToDO.Enter_todoname(String)"
+});
+formatter.result({
+  "duration": 1178239500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "ToDO.VerifyAdded_TODO()"
+});
+formatter.result({
+  "duration": 126602000,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 21,
+  "name": ": Verify Add a Todo",
+  "description": "",
+  "id": "verifying-todos;:-verify-add-a-todo;;5",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@ui"
+    }
+  ]
+});
+formatter.step({
+  "line": 13,
+  "name": "User enter \"Amit Sharma todo4\" Name and submit",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 14,
+  "name": "Todo should added",
+  "keyword": "Then "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Amit Sharma todo4",
+      "offset": 12
+    }
+  ],
+  "location": "ToDO.Enter_todoname(String)"
+});
+formatter.result({
+  "duration": 1148870200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "ToDO.VerifyAdded_TODO()"
+});
+formatter.result({
+  "duration": 130139100,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 23,
+  "name": "Verify Item Left after adding the todos",
+  "description": "",
+  "id": "verifying-todos;verify-item-left-after-adding-the-todos",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 24,
+  "name": "User view the itemleft",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 25,
+  "name": "Item left count should show",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "ToDO.viewLeftcount()"
+});
+formatter.result({
+  "duration": 73296100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "ToDO.LeftCount()"
+});
+formatter.result({
+  "duration": 2045327700,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 27,
+  "name": "Verify Complete  the todo",
+  "description": "",
+  "id": "verifying-todos;verify-complete--the-todo",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 28,
+  "name": "User complete the todo",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 29,
+  "name": "verify the Completed filter and its list",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "ToDO.completeTodo()"
+});
+formatter.result({
+  "duration": 2318753300,
+  "status": "passed"
+});
+formatter.match({
+  "location": "ToDO.completeted()"
+});
+formatter.result({
+  "duration": 2236487100,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 31,
+  "name": "Verify Filters",
+  "description": "",
+  "id": "verifying-todos;verify-filters",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 32,
+  "name": "User click on active filter and check selected or not.",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 33,
+  "name": "User click on All filter and check selected or not.",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "ToDO.ActiveFilter()"
+});
+formatter.result({
+  "duration": 2186250800,
+  "status": "passed"
+});
+formatter.match({
+  "location": "ToDO.AllFilter()"
+});
+formatter.result({
+  "duration": 2170174800,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 35,
+  "name": "Verify Clear Completed",
+  "description": "",
+  "id": "verifying-todos;verify-clear-completed",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 36,
+  "name": "User click clear completed",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "ToDO.ClearCompleted()"
+});
+formatter.result({
+  "duration": 294729900,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 38,
+  "name": "Verify Edit the todo",
+  "description": "",
+  "id": "verifying-todos;verify-edit-the-todo",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 39,
+  "name": "User edit the todo",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 40,
+  "name": "Verify the edited todo",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "ToDO.EditTodo()"
+});
+formatter.result({
+  "duration": 1581329800,
+  "status": "passed"
+});
+formatter.match({
+  "location": "ToDO.VerifyEditTodo()"
+});
+formatter.result({
+  "duration": 101466200,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 42,
+  "name": "Verify Item Left after deleting the todo",
+  "description": "",
+  "id": "verifying-todos;verify-item-left-after-deleting-the-todo",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 43,
+  "name": "Delete a todo and validate count",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "ToDO.deleteTodo()"
+});
+formatter.result({
+  "duration": 1764060200,
+  "status": "passed"
 });
 });

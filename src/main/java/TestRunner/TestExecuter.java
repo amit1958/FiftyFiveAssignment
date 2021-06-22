@@ -23,7 +23,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = { "./src/main/java/features" }, tags = { "@todo1" },
+@CucumberOptions(features = { "./src/main/java/features" }, tags = { "@ui" },
 
 // "@ValidLogin,@Invlidlogin,"
 // + "@HomepageBanners,@AvailableModels,@whysubscribe,@leasingpartners,
